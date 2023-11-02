@@ -9,6 +9,8 @@ import awsconfig from '../aws-exports';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Recipes } from './recipes/recipes.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 Amplify.configure(awsconfig);
 
@@ -16,14 +18,15 @@ Amplify.configure(awsconfig);
   declarations: [
     AppComponent,
     Recipes,
+    AddRecipeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AmplifyAuthenticatorModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    AmplifyAuthenticatorModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

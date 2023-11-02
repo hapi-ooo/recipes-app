@@ -1,0 +1,42 @@
+:root {
+  height: 100%;
+}
+
+form {
+  height: 100%;
+  padding: 8px;
+}
+
+.add-recipe-container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2em;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.field-container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5em;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#add-recipe-submit {
+  margin: auto;
+}
+
+li {
+  list-style: none;
+  span {
+    padding-right: 8px;
+  }
+}
+
+.scrollable {
+  overflow: auto;
+  max-height: 70vh;
+  //scrollbar-width: none;
+}
+

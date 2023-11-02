@@ -1,0 +1,23 @@
+<amplify-authenticator
+  [services]="services"
+  initialState="signIn"
+>
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+  <ul class='nav-menu'>
+    <li>
+      <a routerLink="/add-recipe" routerLinkActive="active">Add Recipe</a>
+    </li>
+    <li>
+      <a routerLink="/recipes" routerLinkActive="active">My Recipes</a>
+    </li>
+    <li>
+      <button (click)="signOut()">Sign Out</button>
+    </li>
+  </ul>
+    <router-outlet></router-outlet>
+  </ng-template>
+</amplify-authenticator>

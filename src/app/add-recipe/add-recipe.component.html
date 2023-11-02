@@ -1,0 +1,65 @@
+<form [formGroup]="addRecipeForm"
+  (ngSubmit)="onSubmit()">
+
+  <!-- container for add recipe form display -->
+  <div class="add-recipe-container">
+
+    <!-- name input -->
+    <div class='field-container'>
+      <label for="name">Name: </label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+
+    <!-- ingredients input -->
+    <div class='field-container'>
+      <label for="ingredient">Ingredient: </label>
+      <input id="ingredient"
+        (keydown)="KeydownEvent($event)"
+        rows="3" cols="30"
+        formControlName="ingredient">
+      <button (click)="addIngredient()"
+        [disabled]="isIngredientEmpty()">
+        Add
+      </button>
+
+    <!-- added ingredients -->
+      <ul>
+        <li *ngFor="let ingredient of ingredients">
+          {{ingredient}}
+        </li>
+      </ul>
+    </div>
+
+    <!-- instructions input -->
+    <div class='field-container'>
+      <label for="instruction">Instruction: </label>
+      <textarea id="instruction"
+        (keydown)="KeydownEvent($event)"
+        rows="4" cols="30"
+        formControlName="instruction">
+      </textarea>
+      <button (click)="addInstruction()"
+        [disabled]="isInstructionEmpty()">
+        Add
+      </button>
+    </div>
+
+    <!-- added instructions -->
+    <div class='scrollable'>
+      <ul>
+        <li *ngFor="let instruction of instructions; index as i">
+          <span>{{'' + (i+1) + '.\t' + instruction}}</span>
+          <button class='instruction-item-button'
+            (click)="onRemoveInstruction(i)">
+            x
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- create recipe button -->
+  <button id='add-recipe-submit' type="submit"
+    [disabled]="!addRecipeForm.valid">Create
+  </button>
+</form>

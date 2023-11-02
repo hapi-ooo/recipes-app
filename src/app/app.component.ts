@@ -3,21 +3,7 @@ import { Auth } from 'aws-amplify';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <amplify-authenticator
-      [services]="services"
-      initialState="signIn"
-    >
-      <ng-template
-        amplifySlot="authenticated"
-        let-user="user"
-        let-signOut="signOut"
-      >
-        <recipes></recipes>
-        <button (click)="signOut()">Sign Out</button>
-      </ng-template>
-    </amplify-authenticator>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {

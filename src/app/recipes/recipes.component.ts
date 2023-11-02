@@ -19,7 +19,7 @@ export class Recipes {
   items: string[] = [];
 
   constructor(private recipeService: RecipeService) {
-    this.recipeService.getRecipes(this.headers)
+    this.recipeService.getRecipes()
       .subscribe( (data: any[]) => {
         data.forEach(item => {
             this.items.push(item.Name.S);
