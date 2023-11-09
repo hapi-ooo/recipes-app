@@ -1,0 +1,27 @@
+<div class='recipe-container' *ngIf="recipe !== undefined">
+  <div class='recipe-border-container'>
+
+<p class='recipe-title'>{{recipe.name}}</p>
+
+<div class='recipe-divider'></div>
+
+<div class='dual-list-section'>
+
+  <div class='recipe-component-list'>
+    <h3>Ingredients</h3>
+    <p *ngFor="let i of recipe.ingredients">{{i}}</p>
+  </div>
+
+  <div class='recipe-component-list'>
+    <h3>Instructions</h3>
+    <p *ngFor="let i of recipe.instructions">{{i}}</p>
+  </div>
+
+</div>
+
+  </div>
+</div>
+
+<div *ngIf="recipe !== undefined">
+  <!-- conditionally rendered html -->
+</div>

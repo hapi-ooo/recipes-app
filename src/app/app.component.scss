@@ -1,3 +1,8 @@
+:root {
+  height: 100%;
+  box-sizing: border-box;
+}
+/*
 .nav-menu {
   display: flex;
   flex-flow: row nowrap;
@@ -5,6 +10,7 @@
   align-items: flex-start;
   gap: 2em;
 }
+*/
 
 li {
   list-style: none;

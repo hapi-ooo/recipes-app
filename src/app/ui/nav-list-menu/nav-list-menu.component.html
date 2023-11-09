@@ -1,0 +1,45 @@
+<div id='main-nav-container'>
+  <ul id='main-nav'>
+    <li>
+      <div class='nav-header'>
+        <span>Introduction</span>
+      </div>
+      <ul class='nav-item-container'>
+        <li class='nav-item'>
+          <a
+            routerLink='/welcome'
+            routerLinkActive='activelink'
+            (isActiveChange)="onRouterLinkActive($event)"
+          >
+            Welcome
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a
+            routerLink='/add-recipe'
+            routerLinkActive='activelink'
+            (isActiveChange)="onRouterLinkActive($event)"
+          >
+            Add
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <div class='nav-header'>
+        <span>My Recipes</span>
+      </div>
+      <ul class='nav-item-container'>
+        <li *ngFor="let recipe of recipes" class='nav-item'>
+          <a
+            [routerLink]="['/recipe', recipe]"
+            routerLinkActive='activelink'
+            (isActiveChange)="onRouterLinkActive($event)"
+          >
+            {{recipe}}
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

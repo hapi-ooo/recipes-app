@@ -12,6 +12,7 @@ export class AddRecipeComponent {
     name: new FormControl(''),
     ingredient: new FormControl(''),
     instruction: new FormControl(''),
+    recipeImage: new FormControl(),
   });
   ingredients: string[] = [];
   instructions: string[] = [];

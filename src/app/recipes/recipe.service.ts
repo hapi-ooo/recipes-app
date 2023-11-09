@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,9 @@ export class RecipeService {
     'Authorization': '',
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getRecipes(): Observable<any[]> {
     let sub = localStorage.getItem('cognitoUserSub') || '';
@@ -27,7 +31,16 @@ export class RecipeService {
       headers: this.headers,
       params: {'sub': sub},
     };
-    return this.http.get<any[]>(this.apiUrl, options);
+    return this.http.get<any[]>(this.apiUrl, options)
+      .pipe( map( (recipes) => recipes || [] ));
+    /*
+    .pipe(
+      (resp) => {
+        console.log(resp)
+        return resp;
+      }
+    );
+      */
   }
 
   /*

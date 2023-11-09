@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+
+$dark-primary: mat.define-palette(mat.$red-palette, A100);
+$dark-background: (
+  50: #100812,
+  contrast: (
+  50: rgba(white, 1.0),
+  )
+);
+$dark-accent: mat.define-palette(mat.$brown-palette, 800);
+$dark-warn: mat.define-palette(mat.$pink-palette, 500);
+
+$default-theme: mat.define-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent,
+    warn: $dark-warn,
+  ),
+  density: 0,
+));
+
+@include mat.core-theme($default-theme);
+@include mat.button-theme($default-theme);
+@include mat.card-theme($default-theme);
